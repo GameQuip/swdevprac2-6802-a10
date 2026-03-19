@@ -23,7 +23,7 @@ export default function MyBookingPage() {
             color="textSecondary"
             sx={{ mb: 4 }}
           >
-            Manage all your venue bookings here
+            Manage all your venue bookings here.
           </Typography>
 
           <Paper

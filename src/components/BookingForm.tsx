@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   TextField,
   Container,
@@ -22,6 +23,7 @@ import { addBooking } from "@/redux/features/bookSlice";
 
 export default function BookingForm() {
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
 
   const [nameLastname, setNameLastname] = useState<string>("");
   const [tel, setTel] = useState<string>("");
@@ -38,9 +40,9 @@ export default function BookingForm() {
       };
 
       dispatch(addBooking(item));
-      alert(`จองสถานที่ ${venue} เรียบร้อยแล้ว!`);
+      router.push("/mybooking");
     } else {
-      alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      alert("Fill in all required data");
     }
   };
 

@@ -10,33 +10,33 @@ export default async function TopMenu() {
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-xl border-b-2 border-slate-900/40 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
-      <div className="flex flex-row items-center justify-between h-full">
-        <div className="flex items-center px-6">
+      <div className="flex flex-row justify-between h-full">
+        <div className="flex flex-row items-center px-8">
           {session ? (
             <Link
               href="/api/auth/signout"
-              className="text-cyan-600 text-sm font-semibold hover:text-cyan-800 transition-colors"
+              className="text-cyan-600 text-sm font-semibold hover:text-cyan-800 transition-colors pr-8"
             >
               Sign-Out of {session.user?.name}
             </Link>
           ) : (
             <Link
               href="/api/auth/signin"
-              className="text-cyan-600 text-sm font-semibold hover:text-cyan-800 transition-colors"
+              className="text-cyan-600 text-sm font-semibold hover:text-cyan-800 transition-colors pr-12"
             >
               Sign-In
             </Link>
           )}
-        </div>
 
-        <div className="flex items-center px-6">
           <Link
             href="/mybooking"
-            className="text-cyan-600 text-sm font-semibold hover:text-cyan-800 transition-colors"
+            className="text-cyan-600 text-sm font-semibold hover:text-cyan-800 transition-colors pr-12"
           >
             My Booking
           </Link>
         </div>
+
+        <div className="flex items-center px-6"></div>
 
         <div className="flex flex-row-reverse items-center pl-6 border-l-2 border-slate-900/20 h-full">
           <Link

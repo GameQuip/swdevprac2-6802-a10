@@ -5,10 +5,15 @@ import BookingForm from "@/components/BookingForm";
 
 export default async function Booking() {
   const session = await getServerSession(authOptions);
-  if (!session || !session.user.token) return null;
+  //if (!session || !session.user.token) return null;
 
-  const profile = await getUserProfile(session.user.token);
-  var createdAt = new Date(profile.data.createdAt);
+  let profile = null;
+  let createdAt = "";
+
+  if (session && session.user.token) {
+    profile = await getUserProfile(session.user.token);
+    createdAt = new Date(profile.data.createdAt).toString();
+  }
 
   return (
     <main className="p-10 bg-slate-50 min-h-screen">
@@ -50,7 +55,7 @@ export default async function Booking() {
         </div>
       ) : (
         <div className="p-4 bg-yellow-50 text-yellow-700 rounded-lg mb-10">
-          Please log in to see your profile and make a booking.
+          Please log in to see your profile.
         </div>
       )}
 
